@@ -1,5 +1,6 @@
 package s1eustei.eah.eah_app;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -10,10 +11,12 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements LocationListener {
+public class MainActivity extends AppCompatActivity implements LocationListener {
     private TextView latituteField;
     private TextView longitudeField;
     private LocationManager locationManager;
@@ -24,6 +27,14 @@ public class MainActivity extends Activity implements LocationListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btDownloadStart= (Button) findViewById(R.id.startDownload);
+
+        btDownloadStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startDownload();
+            }
+        });
         latituteField = (TextView) findViewById(R.id.TextView02);
         longitudeField = (TextView) findViewById(R.id.TextView04);
 
@@ -53,6 +64,18 @@ public class MainActivity extends Activity implements LocationListener {
             latituteField.setText("Location not available");
             longitudeField.setText("Location not available");
         }
+    }
+    private void startDownload(){
+        Downloader.DownloadCompleteListener dcl=new Downloader.DownloadCompleteListener() {
+            @Override
+            public void onDownloadComplete(String result) {
+            TextView tv=(TextView) findViewById(R.id.stundenplan);
+            tv.setText(result);
+            }
+        };
+
+        Downloader downloader= new Downloader(dcl);
+        downloader.execute("http://stundenplanung.eah-jena.de/ical/studentset/?id=SPLUSDE20D2");
     }
 
     /* Request updates at startup */

@@ -1,9 +1,7 @@
 apply plugin: 'com.android.application'
-dependencies {
-    compile 'com.google.android.gms:play-services:9.2.0'
-    compile 'com.google.android.gms:play-services-location:9.2.0'
-}
+
 android {
+    useLibrary 'org.apache.http.legacy'     //nötig für einbindung von AsyncTask-http Bibliotheken
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -28,5 +26,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     testCompile 'junit:junit:4.12'
+    compile 'org.apache.httpcomponents:httpcore:4.4.1'              //nötig für einbindung von AsyncTask-http Bibliotheken
+    compile 'org.apache.httpcomponents:httpclient:4.5'              //nötig für einbindung von AsyncTask-http Bibliotheken
+    compile 'com.google.android.gms:play-services:9.2.0'            //nötig für bibliotheken für LocationListener
+    compile 'com.google.android.gms:play-services-location:9.2.0'   //nötig für bibliotheken für LocationListener
 }
