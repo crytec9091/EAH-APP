@@ -1,4 +1,8 @@
 package s1eustei.eah.eah_app;
+
+// nach einer Vorlage aus dem Netz. hier wird die Url im Asynctask geladen und als string an die MainActivity weitergeben
+//TODO übergabe von verschiedenen URLS aus verschiedenen Activities als variable
+//TODO parsen
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,10 +53,12 @@ public class Downloader extends AsyncTask<String, Void, String> {
         	void onDownloadComplete(String result);
         	}
     private DownloadCompleteListener dc = null;
+	public Downloader(DownloadCompleteListener dc){
 
-    public Downloader(DownloadCompleteListener dc) {
-        	this.dc = dc;
-        	}
+	}
+   // public Downloader(DownloadCompleteListener dc) {
+    //    	this.dc = dc;
+     //   	}
 
     @Override
     	protected void onPostExecute(String result) {

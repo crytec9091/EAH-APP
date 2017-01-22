@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //alles bzgl des layouts war nur für test...kann weg
         Button btDownloadStart= (Button) findViewById(R.id.startDownload);
 
         btDownloadStart.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             longitudeField.setText("Location not available");
         }
     }
+
+    //gehört zum url aufruf
     private void startDownload(){
         Downloader.DownloadCompleteListener dcl=new Downloader.DownloadCompleteListener() {
             @Override
