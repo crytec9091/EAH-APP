@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private TextView longitudeField;
     private LocationManager locationManager;
     private String provider;
-
+//TODO scrollen muss hinzugefügt werden
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(Location location) {
-        int lat = (int) (location.getLatitude());
-        int lng = (int) (location.getLongitude());
+        double lat = (double) (location.getLatitude());
+        double lng = (double) (location.getLongitude());
         latituteField.setText(String.valueOf(lat));
         longitudeField.setText(String.valueOf(lng));
     }

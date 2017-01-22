@@ -53,12 +53,12 @@ public class Downloader extends AsyncTask<String, Void, String> {
         	void onDownloadComplete(String result);
         	}
     private DownloadCompleteListener dc = null;
-	public Downloader(DownloadCompleteListener dc){
+	//public Downloader(DownloadCompleteListener dc){
 
-	}
-   // public Downloader(DownloadCompleteListener dc) {
-    //    	this.dc = dc;
-     //   	}
+	//}
+    public Downloader(DownloadCompleteListener dc) {
+       	this.dc = dc;
+        	}
 
     @Override
     	protected void onPostExecute(String result) {
