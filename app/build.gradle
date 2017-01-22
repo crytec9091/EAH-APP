@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
-
+dependencies {
+    compile 'com.google.android.gms:play-services:9.2.0'
+    compile 'com.google.android.gms:play-services-location:9.2.0'
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
