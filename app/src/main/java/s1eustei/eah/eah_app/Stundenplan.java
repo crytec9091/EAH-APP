@@ -133,6 +133,7 @@ public class Stundenplan extends AppCompatActivity {
 
         //datum = datum.replaceAll(".","");
         //datum.replaceAll("0","");
+        
 
         timeClock = String.valueOf(calendar.getHours()) + String.valueOf(calendar.getMinutes());
 
