@@ -13,14 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private TextView latituteField;
     private TextView longitudeField;
     private LocationManager locationManager;
     private String provider;
+
+    
 //TODO scrollen muss hinzugefügt werden
     /** Called when the activity is first created. */
     @Override
@@ -30,9 +36,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         //alles bzgl des layouts war nur für test...kann weg
         Button btDownloadStart= (Button) findViewById(R.id.startDownload);
 
+
+
+
         btDownloadStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 startDownload();
             }
         });
@@ -78,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         };
 
         Downloader downloader= new Downloader(dcl);
-        downloader.execute("http://stundenplanung.eah-jena.de/ical/studentset/?id=SPLUSDE20D2");
+        downloader.execute("http://stundenplanung.eah-jena.de");
     }
 
     /* Request updates at startup */
