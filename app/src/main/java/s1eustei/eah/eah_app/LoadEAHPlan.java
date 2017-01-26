@@ -22,8 +22,8 @@ public class LoadEAHPlan extends Activity {
     }
 public void addListenerButton(){
 
-    image_campus=(ImageView) findViewById(R.id.campusplan);
-    btn_campus=(Button) findViewById(R.id.btn_campusplan);
+    image_campus=(ImageView) findViewById(R.id.campusplan_big);
+    btn_campus=(Button) findViewById(R.id.btn_campus_plan);
     //TODO hier muss die Haus_ID übergebenw werden
 
     btn_campus.setOnClickListener(new View.OnClickListener() {
