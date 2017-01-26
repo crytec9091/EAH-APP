@@ -39,6 +39,12 @@
             android:label="Abonnierte Studiengänge">
         </activity>
 
+        <activity
+            android:name=".Studiengang_auswahl"
+            android:label="Studiengang auswählen">
+        </activity>
+
+
     </application>
 
 </manifest>

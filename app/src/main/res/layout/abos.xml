@@ -3,4 +3,35 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ExpandableListView
+        android:id="@+id/abos_expandListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </ExpandableListView>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/abos_ButtonDeleteSet"
+            android:text="Set`s löschen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/abos_ButtonAddSet"
+            android:text="Set Hinzufügen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"/>
+    </TableRow>
 </LinearLayout>

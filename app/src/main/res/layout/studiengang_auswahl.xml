@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Studiengang_Wahl_Info"
+        android:text="TextView_Studiengang_Wahl_Info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"/>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:id="@+id/studiengang_wahl_studiengang"
+            android:text="Studiengang:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text="Studiengang_wahl"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="20dp"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/studiengang_semester"
+            android:text="Semester:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/studiengang_wahl_semester"
+            android:text="wahl_semester"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="42dp"
+            android:textSize="20dp"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:id="@+id/studiengang_Set"
+            android:text="Set:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/Studiengang_wahl_set"
+            android:text="wahl_set"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"/>
+    </TableRow>
+
+    <Button
+        android:id="@+id/studiengang_wahl_eingabe"
+        android:text="Eingabe"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="15dp"/>
+    
+</LinearLayout>
