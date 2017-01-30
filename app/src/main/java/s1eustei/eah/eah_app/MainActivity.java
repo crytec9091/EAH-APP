@@ -28,9 +28,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         finalResult=(TextView) findViewById(R.id.stundenplan);
-        //alles bzgl des layouts war nur für test...kann weg
         Button btDownloadStart = (Button) findViewById(R.id.startDownload);
         btDownloadStart.setOnClickListener(new View.OnClickListener() {
+
+            /** instaziiert un übergibt die URL an an den Downloader extends AsyncTask**/
             @Override
             public void onClick(View view) {
 
@@ -39,9 +40,11 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-    public class Downloader extends AsyncTask<String, Void, String> {
-
+    /** hier wird die Hintergrundberechnung ausgeführt, in unserem Fall der Download der Website**/
+    private class Downloader extends AsyncTask<String, Void, String> {
+        /** übergabe der einzelnen URL oder mehrerer URLS an downloadWebpage() sowie zusammenfügen der Response zu einem String
+         * Weitergabe des Ergebnisses an OnPostExecute()
+         * **/
         @Override
         protected String doInBackground(String... urls) {
             String response = "";
@@ -51,7 +54,7 @@ public class MainActivity extends Activity {
 
             return response.toString();
         }
-
+        /** download  und lesen der Response der URL, Ergebnis geht zurück an doInBackground **/
         private String downloadWebpage(String url) {
             try {
                 HttpClient client = new DefaultHttpClient();
@@ -73,16 +76,13 @@ public class MainActivity extends Activity {
                 return "Error when downloading Webpage" + url;
             }
         }
-
+/** Übergabe des Ergebnisses als Parameter an UI-Thread über finalResult**/
         @Override
         protected void onPostExecute(String result) {
             finalResult.setText(result);
         }
 
     }
-
-
-
 
     @Override
     protected void onResume() {

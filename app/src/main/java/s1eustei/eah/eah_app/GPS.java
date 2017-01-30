@@ -1,6 +1,6 @@
 package s1eustei.eah.eah_app;
 
-import android.app.Activity;
+
 import android.content.Context;
 
 import android.content.pm.PackageManager;
@@ -32,16 +32,13 @@ public class GPS extends AppCompatActivity implements LocationListener {
 
         longitudeField = (TextView) findViewById(R.id.TextView04);
 
-        // Get the location manager
-        locationManager = (LocationManager)
+        /** Kontakt mit Location Manager**/
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        /** festlegen wie der location provider ausgewählt wird**/
 
-                getSystemService(Context.LOCATION_SERVICE);
-
-        // Define the criteria how to select the location provider -> use
-        // default
         Criteria criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, false);
-
+        /** Berechtigungscheck**/
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -52,9 +49,10 @@ public class GPS extends AppCompatActivity implements LocationListener {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        /** aktuelle Posoition**/
         Location location = locationManager.getLastKnownLocation(provider);
 
-    // Initialize the location fields
+        /** initialisieren der Location**/
     if(location!=null)
 
     {
@@ -70,11 +68,10 @@ public class GPS extends AppCompatActivity implements LocationListener {
     }
 
 }
-
-    //onresume
     @Override
     protected void onResume() {
         super.onResume();
+        /** Berechtigungscheck**/
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions

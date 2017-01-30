@@ -1,14 +1,12 @@
 package s1eustei.eah.eah_app;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 
-
+/**diese Klasse lädt je nach id, welche als Parameter übergeben wird, den jeweiligen Campusplan**/
 public class LoadEAHPlan extends Activity {
 
     Button btn_campus;
