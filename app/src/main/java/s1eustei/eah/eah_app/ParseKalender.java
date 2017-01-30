@@ -13,7 +13,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import lern
+//import lern
 public class ParseKalender {
     private org.jsoup.nodes.Document htmlSite;
     private boolean success;

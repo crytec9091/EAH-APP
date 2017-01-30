@@ -47,6 +47,7 @@
         <activity android:name=".LoadEAHPlan"
             android:label="LAGEPLAN">
         </activity>
+        <activity android:name=".GPS" />
 
     </application>
 
