@@ -13,19 +13,14 @@ public class LoadEAHPlan extends Activity {
 
     Button btn_campus;
     ImageView image_campus;
-    public int haus_id=0;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_eahplan);
-        addListenerButton();
-    }
-public void addListenerButton(){
+
+
+    public void getLagePlan(int haus_id){
 
     image_campus=(ImageView) findViewById(R.id.campusplan_big);
-    btn_campus=(Button) findViewById(R.id.btn_campus_plan);
-    //TODO hier muss die Haus_ID übergebenw werden
 
+
+        setContentView(R.layout.activity_load_eahplan);
     btn_campus.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {

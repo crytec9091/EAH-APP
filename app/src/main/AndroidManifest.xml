@@ -44,6 +44,9 @@
             android:label="Studiengang auswählen">
         </activity>
 
+        <activity android:name=".LoadEAHPlan"
+            android:label="LAGEPLAN">
+        </activity>
 
     </application>
 

@@ -13,8 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private LocationManager locationManager;
     private String provider;
 
-    
+    //TODO Auslagern der GPS abfrage
 //TODO scrollen muss hinzugefügt werden
     /** Called when the activity is first created. */
     @Override
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         // Get the location manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        // Define the criteria how to select the locatioin provider -> use
+        // Define the criteria how to select the location provider -> use
         // default
         Criteria criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, false);
@@ -128,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(Location location) {
-        double lat = (double) (location.getLatitude());
-        double lng = (double) (location.getLongitude());
+        double lat =  (location.getLatitude());
+        double lng =  (location.getLongitude());
         latituteField.setText(String.valueOf(lat));
         longitudeField.setText(String.valueOf(lng));
     }
