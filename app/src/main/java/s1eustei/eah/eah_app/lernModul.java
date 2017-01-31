@@ -9,7 +9,7 @@ import java.util.Date;
 public class lernModul {
     int id;
     public String Name;
-    public enum modul_type Type;
+    //public enum modul_type Type;
     public String Dozent;
     public boolean Sichtbar;
     public String Raum;

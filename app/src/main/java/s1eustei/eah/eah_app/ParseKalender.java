@@ -2,6 +2,7 @@ package s1eustei.eah.eah_app;
 
 import android.provider.DocumentsContract;
 
+
 /**
  * Created by franz on 26.01.17.
  */
@@ -13,14 +14,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import lern
+
+
 public class ParseKalender {
     private org.jsoup.nodes.Document htmlSite;
     private boolean success;
     private  org.jsoup.select.Elements tbody;
 
     public void getHtml(String uri){
-        try{
+/*        try{
             htmlSite=Jsoup.connect(uri);
             success=true;
         }
@@ -43,6 +45,6 @@ public class ParseKalender {
                 String Wochen= tds.get(5).text();
                 String Beginn=tds.get(6).text();
             }
-        }
+        }*/
     }
 }
