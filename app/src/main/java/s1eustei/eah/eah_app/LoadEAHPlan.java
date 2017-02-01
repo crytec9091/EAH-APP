@@ -13,13 +13,13 @@ public class LoadEAHPlan extends Activity {
 
     Button btn_campus;
     ImageView image_campus;
-    public int haus_id=0;
+    //public int haus_id=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_eahplan);
-        addListenerButton();
-    }
+        //addListenerButton();
+    }/*
 public void addListenerButton(){
 
     image_campus=(ImageView) findViewById(R.id.campusplan_big);
@@ -44,7 +44,23 @@ public void addListenerButton(){
             }
 
         }
-    });
+    });*/
+
+    public void getLageplan_1(int haus_id){
+        if (haus_id==0){
+            image_campus.setImageResource(R.drawable.campusplan_big);
+        }if (haus_id==1){
+            image_campus.setImageResource(R.drawable.campusplan_haus_1);
+        }if (haus_id==2){
+            image_campus.setImageResource(R.drawable.campusplan_haus_2);
+        }if (haus_id==3){
+            image_campus.setImageResource(R.drawable.campusplan_haus_3);
+        }if (haus_id==4){
+            image_campus.setImageResource(R.drawable.campusplan_haus_4);
+        }if (haus_id==5){
+            image_campus.setImageResource(R.drawable.campusplan_haus_5);
+        }
+    }
 
 }
 
@@ -52,4 +68,4 @@ public void addListenerButton(){
 
 
 
-}
+

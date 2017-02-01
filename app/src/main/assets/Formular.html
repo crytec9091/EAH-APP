@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Cache-Control" content="private,must-revalidate,no-cache,no-store" />
+<title>Kallender EAH auslesen</title>
+<script src="http://stundenplanung.eah-jena.de/studentset/setfunctions.js" type="text/javascript"></script>
+<script src="http://stundenplanung.eah-jena.de/inc/semester.js" type="text/javascript"></script>
+<script src="http://stundenplanung.eah-jena.de/inc/StudentSetList.js" type="text/javascript"></script>
+
+</head>
+
+
+<body>
+<Font SIZE="5">
+  Bitte wählen Sie nun Ihren Studiengang.
+	<br><br>
+
+  <form class="content" action="http://stundenplanung.eah-jena.de/studentset/" id="fSelect" method="get" target="ausgabe">
+	<label for="StgSelect">
+		Studiengang:
+		<select id="StgSelect" name="Studiengang" onchange='UpdateSemester(this)'>
+			<option value='AO(BA)'>Bachelor: &nbsp; Augenoptik</option>
+			<option value='BW(BA)'>Bachelor: &nbsp; Betriebswirtschaft</option>
+			<option value='BT(BA)'>Bachelor: &nbsp; Biotechnologie</option>
+			<!-- option value='DSA(BA)'>Bachelor: &nbsp; Dayton Sommerakademie</option -->
+			<option value='DJU(BA)'>Bachelor: &nbsp; Deutsch-Jordanische-Universität</option>
+			<option value='WIEC(BA)'>Bachelor: &nbsp; E-Commerce</option>
+			<option value='ET(BA)'>Bachelor: &nbsp; Elektrotechnik</option>
+			<option value='FT(BA)'>Bachelor: &nbsp; Feinwerktechnik</option>
+			<!-- option value='AAMW(BA)'>Bachelor: &nbsp; Herbstakademie Wenzhou</option -->
+			<option value='LOT(BA)'>Bachelor: &nbsp; Laser- und Optotechnologien</option>
+			<option value='MB(BA)'>Bachelor: &nbsp; Maschinenbau</option>
+			<option value='ME(BA)'>Bachelor: &nbsp; Mechatronik</option>
+			<option value='MT(BA)'>Bachelor: &nbsp; Medizintechnik</option>
+			<option value='PVHT(BA)'>Bachelor: &nbsp; Photovoltaik und Halbleitertechnologie</option>
+			<option value='PT(BA)'>Bachelor: &nbsp; Physikalische Technik</option>
+			<option value='SGU(BA)'>Bachelor: &nbsp; Swiss German University Indonesien </option>
+			<option value='UT(BA)'>Bachelor: &nbsp; Umwelttechnik (und Entwicklung)</option>
+			<!--option value='PiUS(BA)'>Bachelor: &nbsp; Prozessintegrierter Umweltschutz</option-->
+			<option value='CDHAW(BA)'>Bachelor: &nbsp; Sonderstudienplan f&uuml;r CDHAW</option>
+			<option value='WT(BA)'>Bachelor: &nbsp; Werkstofftechnik</option>
+			<option value='WI(BA)'>Bachelor: &nbsp; Wirtschaftsingenieurwesen</option>
+			<option value='AO(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Augenoptik</option>
+			<option value='BW(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Betriebswirtschaft</option>
+			<option value='LOT(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Laser- und Optotechnologien</option>
+			<option value='MB(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Maschinenbau</option>
+			<option value='ME(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mechatronik</option>
+			<option value='MT(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Medizintechnik</option>
+			<option value='MiBi(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Miniaturisierte Biotechnologie</option>
+			<option value='PBT(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pharma-Biotechnologie</option>
+			<option value='RE(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Raumfahrtelektronik</option>
+			<option value='SI(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scientific Instrumentation</option>
+			<option value='SD(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System Design</option>
+			<option value='WT(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Werkstofftechnik</option>
+			<option value='WI(MA)'>Master: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wirtschaftsingenieurwesen</option>
+			<option value='DJU(BA)'>Deutsch-Jordanische-Universität</option>
+		</select>	
+	</label>
+
+	<br> <br>
+
+	<label for="SemesterSelect">
+		Semester:
+		<select id="SemesterSelect" name="Semester" onchange="UpdateGroup(this)">
+			<option>&nbsp;</option>
+		</select>
+	</label>
+
+	<br><br>
+
+	<label for="GroupSelect">
+		Gruppe:
+		<select id="GroupSelect" name="Group">
+			<option>&nbsp;</option>
+		</select>
+	</label>
+
+	<br> <br>
+
+	<label>
+               Wochenkalender für
+               <select name="week">
+                      <option value="1-17"   selected="selected" >	WS 2016/17  17.10.2016 - 12.02.2017    </option>
+               </select>
+	</label>
+
+	<br> <br>
+	
+	<li>
+		<input type="submit" value="Anzeigen" />
+	</li>
+   </form>
+</Font>
+
+</body>
+
+
+</html> 
