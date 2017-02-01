@@ -44,7 +44,7 @@ public class DBVerwaltung {
         dbHelper.close();
     }
 
-    public DBQuelle createDBQuelle(String Name, enum DBQuelle.modul_type, String Dozent, String Raum, Date Anfang, Date Ende) {
+    public DBQuelle createDBQuelle(String Name, modul_type modul_type, String Dozent, String Raum, Date Anfang, Date Ende) {
         ContentValues values = new ContentValues();                     //Daten in die DB schreiben
         values.put(DBHelper.COLUMN_NAME, Name);
         values.put(DBHelper.COLUMN_MODULTYPE, modul_type);
@@ -72,21 +72,21 @@ public class DBVerwaltung {
         int idModul_type = cursor.getColumnIndex(DBHelper.COLUMN_MODULTYPE);
         int idDozent = cursor.getColumnIndex(DBHelper.COLUMN_DOZENT);
         int idRaum = cursor.getColumnIndex(DBHelper.COLUMN_RAUM);
-        int idAnfang = cursor.getColumnIndex(DBHelper.COLUMN_ANFANG);
-        int idEnde = cursor.getColumnIndex(DBHelper.COLUMN_ENDE);
+        int idAnfang = cursor.getColumnIndex(DBHelper.COLUMN_ANFANG.toString());
+        int idEnde = cursor.getColumnIndex(DBHelper.COLUMN_ENDE.toString());
 
 
         String Name = cursor.getString(idName);
-        enum Modul_type = cursor.getString(idModul_type);
+        modul_type modul_type = s1eustei.eah.eah_app.modul_type.valueOf(cursor.getString(idModul_type));
         String Dozent = cursor.getString(idDozent);
         String Raum = cursor.getString(idRaum);         //Wandelt die int in Sting um
-        Time Anfang = cursor.getString(idAnfang);
-        Time Ende = cursor.getString(idEnde);
+        Time Anfang = Time.valueOf(cursor.getString(idAnfang));
+        Time Ende = Time.valueOf(cursor.getString(idEnde));
         long id = cursor.getLong(idIndex);
 
-        DBQuelle dbQuelle = new DBQuelle(Name, Modul_type, Dozent,Raum,Anfang,Ende,id);
+        DBQuelle dbQuelle = new DBQuelle(Name, modul_type, Dozent,Raum,Anfang,Ende,id);
 
-        return DBQuelle;
+        return dbQuelle;
     }
 
     public List<DBQuelle> getAllDBQuelle() {
@@ -108,8 +108,4 @@ public class DBVerwaltung {
 
         return DBQuelleList;
     }
-}
-
-
-
 }

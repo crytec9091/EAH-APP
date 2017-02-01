@@ -42,6 +42,6 @@ dependencies {
     //nötig für bibliotheken für LocationListener
     compile 'com.google.android.gms:play-services-location:9.2.0'
     //nötig für bibliotheken für LocationListener
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    //compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile files('libs/jsoup-1.10.2.jar')
 }
