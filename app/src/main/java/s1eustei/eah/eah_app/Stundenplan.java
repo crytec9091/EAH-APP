@@ -285,7 +285,7 @@ public class Stundenplan extends AppCompatActivity {
             LoadEAHPlan lageplan = new LoadEAHPlan();
             Intent intent = new Intent(Stundenplan.this, LoadEAHPlan.class);
             startActivity(intent);
-            lageplan.getLageplan_1(haus);
+            lageplan.getLagePlan(haus);
         }
     };
 

@@ -13,7 +13,7 @@ public class LoadEAHPlan extends Activity {
     ImageView image_campus;
 
 
-    public void getLagePlan(int haus_id){
+    public void getLagePlan(final int haus_id){
 
     image_campus=(ImageView) findViewById(R.id.campusplan_big);
 
