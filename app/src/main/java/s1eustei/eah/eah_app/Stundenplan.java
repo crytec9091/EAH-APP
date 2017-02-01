@@ -18,10 +18,9 @@ import java.util.Date;
 
 
 public class Stundenplan extends AppCompatActivity {
-
     LinearLayout _linearLayout;
     Button _ButtonNextWeek, _ButtonPreviosWeek, _ButtonEdit;
-    int _week = 1;
+    int _week = 1, _counterModul = 1;
     String _BackgroundColor = "#e7ffff";
     String _ColorActivModul = "#009696";
     String _ColorButton = "#FF56FAB8";
@@ -37,6 +36,7 @@ public class Stundenplan extends AppCompatActivity {
         Button ButtonEdit = new Button(this);
 
         // define layout
+        //getLayoutInflater().in XAML zur Laufzeit laden
         scrollView.setLayoutParams(new ScrollView.LayoutParams(ScrollView.LayoutParams.MATCH_PARENT, ScrollView.LayoutParams.MATCH_PARENT));
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
@@ -125,8 +125,9 @@ public class Stundenplan extends AppCompatActivity {
         column2.setText(modul + "\n" + dozent + "\n" + raum);
         column3.setText(ende);
 
-        /*
+
         //marks the current Modules
+        /*
         start = start.replaceAll(":","");
         if (start.charAt(0) == '0'){
             for (counter = 1; counter <= 4; counter++){
@@ -168,6 +169,15 @@ public class Stundenplan extends AppCompatActivity {
             if (zeitCurrent >= startzeitModul || zeitCurrent <= endzeitModul)
                 tableRow.setBackgroundColor(Color.parseColor(_ColorActivModul));
         */
+
+        // enabel the modul to be clickable
+        String id;
+
+        id = raum.charAt(0) + String.valueOf(_counterModul);
+        tableRow.setId(Integer.valueOf(id));
+        tableRow.isClickable();
+        tableRow.setOnClickListener(getLageplan);
+
         //add to ScrollView;
         tableRow.addView(column1);
         tableRow.addView(column2);
@@ -209,7 +219,9 @@ public class Stundenplan extends AppCompatActivity {
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.stundenplan);
         getStundenplan();
+        //getLageplan();
 
         _ButtonPreviosWeek.setOnClickListener(OnBtnPreviosWeekListener);
         _ButtonNextWeek.setOnClickListener(OnBtnNextWeekListener);
@@ -244,6 +256,8 @@ public class Stundenplan extends AppCompatActivity {
                 _ButtonNextWeek.setOnClickListener(OnBtnNextWeekListener);
                 _ButtonEdit.setOnClickListener(OnBtnEditListener);
             } else AllertWocheHoch();
+
+
         }
     };
 
@@ -254,6 +268,24 @@ public class Stundenplan extends AppCompatActivity {
         {
             Intent intent = new Intent(Stundenplan.this, Abos.class);
             startActivity(intent);
+        }
+    };
+
+    View.OnClickListener getLageplan = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String idTableRow;
+            int haus;
+
+            // get id of TableRow
+            idTableRow = String.valueOf(view.getId());
+            haus = Integer.valueOf(idTableRow.charAt(0));
+
+            //load activity Lageplan with parameter
+            LoadEAHPlan lageplan = new LoadEAHPlan();
+            Intent intent = new Intent(Stundenplan.this, LoadEAHPlan.class);
+            startActivity(intent);
+            lageplan.getLageplan_1(haus);
         }
     };
 

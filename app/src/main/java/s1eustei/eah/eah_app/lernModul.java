@@ -1,6 +1,5 @@
 package s1eustei.eah.eah_app;
 
-import java.lang.reflect.Type;
 import java.util.Date;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Date;
 public class lernModul {
     int id;
     public String Name;
-    public enum modul_type{};
+    public enum modul_type Type;
     public String Dozent;
     public boolean Sichtbar;
     public String Raum;
