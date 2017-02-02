@@ -87,8 +87,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
+        /**hier soll ie URL Request geparst und an die Datenbank übergeben werden**/
     }
 
     @Override

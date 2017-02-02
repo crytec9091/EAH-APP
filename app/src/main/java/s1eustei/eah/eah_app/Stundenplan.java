@@ -24,7 +24,8 @@ public class Stundenplan extends AppCompatActivity {
     String _BackgroundColor = "#e7ffff";
     String _ColorActivModul = "#009696";
     String _ColorButton = "#FF56FAB8";
-
+    LinearLayout _draw;
+    public static final String hausnummer="Hausnummer";
 
     private void createView() {
         //create ScrollView and LinearLayout
@@ -196,7 +197,7 @@ public class Stundenplan extends AppCompatActivity {
     private void getStundenplan(){
         int counter, id;
         String wocheAnfangEnde;
-        String Day[] = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Sonnabend"};
+        String Day[] = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"};
 
         //create ScrollView and Buttons
         createView();
@@ -222,6 +223,8 @@ public class Stundenplan extends AppCompatActivity {
         //setContentView(R.layout.stundenplan);
         getStundenplan();
         //getLageplan();
+        LinearLayout _draw = new LinearLayout(this);
+
 
         _ButtonPreviosWeek.setOnClickListener(OnBtnPreviosWeekListener);
         _ButtonNextWeek.setOnClickListener(OnBtnNextWeekListener);
@@ -282,10 +285,12 @@ public class Stundenplan extends AppCompatActivity {
             haus = Integer.valueOf(idTableRow.charAt(0));
 
             //load activity Lageplan with parameter
-            LoadEAHPlan lageplan = new LoadEAHPlan();
+           // LoadEAHPlan lageplan = new LoadEAHPlan();
             Intent intent = new Intent(Stundenplan.this, LoadEAHPlan.class);
+           // String getHausNr=String.valueOf(haus);
+            intent.putExtra(hausnummer,haus);
             startActivity(intent);
-            lageplan.getLagePlan(haus);
+
         }
     };
 
