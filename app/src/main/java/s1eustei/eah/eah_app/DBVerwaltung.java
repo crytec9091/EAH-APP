@@ -44,14 +44,14 @@ public class DBVerwaltung {
         dbHelper.close();
     }
 
-    public DBQuelle createDBQuelle(String Name, enum DBQuelle.modul_type, String Dozent, String Raum, Date Anfang, Date Ende) {
+    public DBQuelle createDBQuelle(String Name, modul_type modul_type, String Dozent, String Raum, String strAnfang, String strEnde) {
         ContentValues values = new ContentValues();                     //Daten in die DB schreiben
         values.put(DBHelper.COLUMN_NAME, Name);
-        values.put(DBHelper.COLUMN_MODULTYPE, modul_type);
+        values.put(DBHelper.COLUMN_MODULTYPE, String.valueOf(modul_type));
         values.put(DBHelper.COLUMN_DOZENT, Dozent);
         values.put(DBHelper.COLUMN_RAUM, Raum);
-        values.put(DBHelper.COLUMN_ANFANG, Anfang);
-        values.put(DBHelper.COLUMN_ENDE, Ende);
+        values.put(DBHelper.COLUMN_ANFANG, strAnfang);
+        values.put(DBHelper.COLUMN_ENDE, strEnde);
 
 
 
@@ -76,17 +76,18 @@ public class DBVerwaltung {
         int idEnde = cursor.getColumnIndex(DBHelper.COLUMN_ENDE);
 
 
+        int id = cursor.getInt(idIndex);
         String Name = cursor.getString(idName);
-        enum Modul_type = cursor.getString(idModul_type);
+        String Modul_type = cursor.getString(idModul_type);
         String Dozent = cursor.getString(idDozent);
         String Raum = cursor.getString(idRaum);         //Wandelt die int in Sting um
-        Time Anfang = cursor.getString(idAnfang);
-        Time Ende = cursor.getString(idEnde);
-        long id = cursor.getLong(idIndex);
+        String Anfang = cursor.getString(idAnfang);
+        String Ende = cursor.getString(idEnde);
 
-        DBQuelle dbQuelle = new DBQuelle(Name, Modul_type, Dozent,Raum,Anfang,Ende,id);
 
-        return DBQuelle;
+        DBQuelle dbQuelle = new DBQuelle(id, Name, modul_type.valueOf(Modul_type), Dozent,Raum,Anfang,Ende);
+
+        return dbQuelle;
     }
 
     public List<DBQuelle> getAllDBQuelle() {
@@ -111,5 +112,3 @@ public class DBVerwaltung {
 }
 
 
-
-}

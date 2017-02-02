@@ -27,8 +27,10 @@ public class DBHelper extends SQLiteOpenHelper {        //Hilfsklasse zum Erstel
     public static final String COLUMN_MODULTYPE = "modul_type";
     public static final String COLUMN_DOZENT = "dozent";
     public static final String COLUMN_RAUM = "raum";
-    public static final Time COLUMN_ANFANG;
-    public static final Time COLUMN_ENDE ;
+    public static final String COLUMN_ANFANG ="stranfang";
+    public static final String COLUMN_ENDE ="stranfang";
+
+
 
 
 
